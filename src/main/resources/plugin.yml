@@ -1,0 +1,4 @@
+name: Template
+version: '${version}'
+main: com.lutto.template.Template
+api-version: '1.21'
