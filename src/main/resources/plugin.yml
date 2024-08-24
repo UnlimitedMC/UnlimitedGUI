@@ -1,4 +1,4 @@
-name: Template
+name: UnlimitedGUI
 version: '${version}'
-main: com.lutto.template.Template
+main: com.unlimited.api.Main
 api-version: '1.21'
