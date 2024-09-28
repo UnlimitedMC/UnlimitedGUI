@@ -22,30 +22,6 @@ class UnlimitedInventory : JavaPlugin(), Listener {
     override fun onEnable() {
         plugin = this
         Bukkit.getPluginManager().registerEvents(InventoryListener(InventoryManager.getInstance()), this)
-        Bukkit.getPluginManager().registerEvents(this, this)
-    }
-
-    @EventHandler
-    fun onAsyncPlayerChat(event: AsyncPlayerChatEvent) {
-        val inventory = InventoryBuilder()
-            .title("Test Title")
-            .size(InventorySize.GENERIC_9X4)
-            .onOpen { a -> a.player.sendMessage("Test!") }
-            .setItem(1, ItemStack(Material.DIAMOND_SWORD), { a ->
-                println(a.action.name)
-                a.isCancelled = false
-            })
-            .addAction(1, { a ->
-                println(a.action.name)
-                a.isCancelled = false
-            })
-            .onClick { event -> event.isCancelled = true }
-            .build()
-        object : BukkitRunnable() {
-            override fun run() {
-                event.player.openInventory(inventory)
-            }
-        }.runTask(this)
     }
 
 }
